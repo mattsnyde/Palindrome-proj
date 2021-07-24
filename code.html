@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Matthew Snyder</title>
+    <title>Palindrome: A Coding Project By Matthew Snyder</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +20,7 @@
 <!--Nav Area -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top"> <!--Expand all of the links for medium screens and above, and hamburger icon for screens less than medium breakpont. dark background, fixed to to top-->
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="img/E.svg" alt="Matthew Snyder Mark" class="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+                    <a class="navbar-brand" href="#"><img src="img/E.svg" alt="Matthew Snyder Mark" class="d-inline-block align-text-top" width="30" height="24">Palindrome</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -49,23 +49,58 @@
     <!--main area-->
     <main class="flex-shrink-0">
         <div class="container py-5 px-4 mt-5">
-            <h2 class="border-1 border-bottom border-dark text-center">The Code for APP NAME</h2>
+            <h2 class="border-1 border-bottom border-dark text-center">The Code for Palindrome</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <!--first column is code embed-->
                 <div class="col-lg-8">
                     <pre class="line-numbers"> <!--line-numbers will put an increasing number for each line there is.-->
                         <code class="language-javascript">
-                            function helloWorld(){  
-                                alert("hello world")
+                            function getText(){
+                                document.getElementById('alert').classList.add('invisible')
+                                let userInput = document.getElementById('userInput').value 
+                                let reversedString = checkPalindrome(userInput)
+                                displayResults(userInput, reversedString)
+                            }
+
+                            function checkPalindrome(userInput){
+                                let userString = userInput.toLowerCase().replace(/[^a-zA-Z]/g, ''); 
+                                let splitString = userString.split("")  
+                                let reversedArray = splitString.reverse();   
+                                let joinArray = reversedArray.join("")  
+                                return joinArray
+                            }
+
+                            function displayResults(userInput, reversedString){  
+                                let fixedUserString = userInput.toLowerCase().replace(/[^a-zA-Z]/g, '')
+                                let messageDisplay = document.getElementById('message') 
+                                let headingMessage = document.getElementById('the-heading') 
+
+                                messageDisplay.innerHTML = ''; 
+                                headingMessage.innerHTML = '';
+
+                                document.getElementById('alert').classList.remove('invisible')  
+
+                                if(fixedUserString !== reversedString){
+                                    headingMessage.innerHTML = `${userInput} is not a palindrome`
+                                    messageDisplay.innerHTML = `Your phrase reversed is: ${reversedString}`
+                                }else{
+                                    headingMessage.innerHTML = `Well done! You entered a palindrome`
+                                    messageDisplay.innerHTML = `Your phrase reversed is: ${reversedString}`
+                                }
                             }
                         </code>
                     </pre>
                 </div>
                 <!--second column is description of the code-->
                 <div class="col-lg-4">
-                    <p>The code is structured in one function</p>
-                    <h5>Hello World</h5>
-                    <p>helloWorld is a function that displays an alert with a message of "Hello World"</p>
+                    <h5 class="pb-1 border-bottom border-2 border-light">getText()</h5>
+                    <p class="lead text-light">The function getText() gets the user string and passes it as an argument to other functions inside of the program. This function also adds a class of invisible to the alert div in order to hide it when the button in the form has not been clicked.</p>
+                    <br>
+                    <h5 class="pb-1 border-bottom border-2 border-light">checkPalindrom()</h5>
+                    <p class="lead text-light">The checkPalindrome function takes in userInput as an arquement and performs some operations on it. The function begins by converting the user input to all lower case and removing everything that is not upper case or lower case a-Z. I then split the string into the array using the split method. After using the split method I then user the reverse method to reverse the array. Finally I use the join method to convert the array back into a string that is reversed from the original.</p>
+                    <br>
+                    <h5 class="pb-1 border-bottom border-2 border-light">displayResults()</h5>
+                    <p class="lead text-light">The displayResults function takes in userInput and the reversedString as arguements. In order to determine if the reversedString arguement is a palindrome I have to remove all non letter characters from userInput and conmvert to lowerCase. I then get the message and the-heading elements from the alert div. Using an if and else statement I check to see if the userInput is equal to reversedString and then I edit the html in the alert div based on that</p>
                 </div>
             </div>
         </div>
@@ -75,7 +110,7 @@
             <div class="container-fluid ">
                 <div class="row row-cols-1 row-cols-lg-3 gy-3"> <!--Each column is 4 unites wide since there is a 12 unite maximum -->
                     <div class="col order-last text-light order-lg-first"> <!--When the screen size is less than large than we want this copy right information to be on the bottom instead of first. For large and above we want the copy right information first.-->
-                        <div class="" style="font-size:12px"><span class="text-muted" style="font-size:12px">&copy;2021</span> Matthew Snyder | matthewx.snyder@gmail.com</div> <!--text-muted just changes the appearance of the text-->
+                        <div class="" style="font-size:12px"><span class="text-muted" style="font-size:12px">&copy;2021</span> Matthew Snyder | MatthewSnyder@mattsnyder.me</div> <!--text-muted just changes the appearance of the text-->
                     </div>
                     <div class="col  d-flex align-items-centers justify-content-start justify-content-lg-center"> <!--d-flex allows us to control horizontal and vertical positions, aligned content to the center using align items which gives vertical alignment and then justify content-center is horizontal alignment which leaves the content in center of col-->
                         <img src="img/dark-logo.svg.svg" alt="Matthew Snyder logo" height="24"> <!--put height="24" to keeps things proportional and looking right-->

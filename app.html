@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Matthew Snyder</title>
+    <title>Palindrome: A Coding Project By Matthew Snyder</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +19,7 @@
 <!--Nav Area -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top"> <!--Expand all of the links for medium screens and above, and hamburger icon for screens less than medium breakpont. dark background, fixed to to top-->
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/E.svg" alt="Matthew Snyder Mark" class="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+            <a class="navbar-brand" href="#"><img src="img/E.svg" alt="Matthew Snyder Mark" class="d-inline-block align-text-top" width="30" height="24">Palindrome</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,14 +47,39 @@
     </nav>
     <!--Main-->
     <main class="flex-shrink-0">
-        <div class="container"></div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col">
+                    <h5 class="display-4 fw-bold lh-1 mt-4">Palindromes: A Coding Project</h5>
+                    <p class="lead">A palindrome is a word, prhase or sequence that reads the same backward as forward. Write a program the checks if the phrase entered is a palindrome</p>
+                </div>
+                <div class="col">
+                    <div>
+                        <h5 class="fw-bold mt-5 border-bottom border-2 border-dark">Enter a phrase or word to check</h5>
+                        <form class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="userInput" aria-label="palindrome input" id="userInput">
+                            </div>
+                            <div class="col-12">
+                                <button type="button" id="btn-submit" class="btn btn-dark btn-md mt-3">Check it</button>
+                            </div>
+                            <div class="text-light alert alert-dark fade invisible show mt-5" id="alert" type="alert">
+                                <h5 id="the-heading" class="alert-heading">Well done! You entered a palindrome!</h5>
+                                <hr>
+                                <p id="message">Test</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <!--Footer Section-->
     <footer class="footer mt-auto py-3">
         <div class="container-fluid ">
             <div class="row row-cols-1 row-cols-lg-3 gy-3"> <!--Each column is 4 unites wide since there is a 12 unite maximum -->
                 <div class="col order-last text-light order-lg-first"> <!--When the screen size is less than large than we want this copy right information to be on the bottom instead of first. For large and above we want the copy right information first.-->
-                    <div class="" style="font-size:12px"><span class="text-muted" style="font-size:12px">&copy;2021</span> Matthew Snyder | matthewx.snyder@gmail.com</div> <!--text-muted just changes the appearance of the text-->
+                    <div class="" style="font-size:12px"><span class="text-muted" style="font-size:12px">&copy;2021</span> Matthew Snyder | MatthewSnyder@mattsnyder.me</div> <!--text-muted just changes the appearance of the text-->
                 </div>
                 <div class="col  d-flex align-items-centers justify-content-start justify-content-lg-center"> <!--d-flex allows us to control horizontal and vertical positions, aligned content to the center using align items which gives vertical alignment and then justify content-center is horizontal alignment which leaves the content in center of col-->
                     <img src="img/dark-logo.svg.svg" alt="Matthew Snyder logo" height="24"> <!--put height="24" to keeps things proportional and looking right-->
@@ -69,6 +94,9 @@
             </div>
          </div>
     </footer>
+    <script>
+        document.getElementById('btn-submit').addEventListener('click', function(){getText()})
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
